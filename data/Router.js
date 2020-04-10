@@ -6,7 +6,8 @@ const Actions = require('./helpers/actionModel.js');
 
 //BOTH PROJECT AND ACTION GETS
 router.get('/', (req, res) => {
-    Projects.get(req.query)
+    console.log({...req.query});
+    Projects.get()
     .then(projects => {
         res.status(200).json(projects);
     })
@@ -19,7 +20,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    Projects.get(req.query)
+    Projects.get()
     .then(p => {
         res.status(200).json(p);
     })
@@ -115,7 +116,7 @@ router.put('/:id/actions/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     Projects.remove(req.params.id)
     .then(count => {
-        if(couunt > 0) {
+        if(count > 0) {
             res.status(200).json({
                 message: 'The project has been successfully nuked'
             });

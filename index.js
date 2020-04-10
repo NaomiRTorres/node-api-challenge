@@ -20,7 +20,8 @@ const Router = require('./data/Router.js');
 const server = express();
 
 server.use(express.json());
-server.use('/api/projects', Router);
+
+server.use("/api/projects", Router);
 
 server.get('/', (req, res) => {
     res.send(`
@@ -29,7 +30,6 @@ server.get('/', (req, res) => {
     `);
 });
 
-//server.use('/api/projects/:id/actions', actionRouter);
 
 
 server.listen(5000, () => {
