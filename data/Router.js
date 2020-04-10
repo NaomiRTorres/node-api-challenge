@@ -7,8 +7,8 @@ const Actions = require('./helpers/actionModel.js');
 //BOTH PROJECT AND ACTION GETS
 router.get('/', (req, res) => {
     Projects.get(req.query)
-    .then(p => {
-        res.status(200).json(p);
+    .then(projects => {
+        res.status(200).json(projects);
     })
     .catch(error => {
         console.log(error);
