@@ -12,3 +12,26 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Go code!
 */
+const express = require('express');
+
+
+const Router = require('./data/Router.js');
+
+const server = express();
+
+server.use(express.json());
+
+server.use("/api/projects", Router);
+
+server.get('/', (req, res) => {
+    res.send(`
+    <h2>Lambda Api Challenge</h2>
+    <p>Welcome to the Lambda Challenge Sprint</p>
+    `);
+});
+
+
+
+server.listen(5000, () => {
+    console.log('\n === Server running on http://localhost:5000 ===\n');
+});
